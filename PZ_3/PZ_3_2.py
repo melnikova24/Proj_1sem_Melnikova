@@ -19,11 +19,11 @@ while type(x) != int:
     except TypeError:
         continue
 
-if 0 < x < 4:
+if 0 < x < 3 or x == 12:
     print("Зима")
-elif 3 < x < 7:
+elif 2 < x < 6:
     print("Весна")
-elif 7 < x < 10:
+elif 5 < x < 9:
     print("Лето")
 else:
     print("Осень")
