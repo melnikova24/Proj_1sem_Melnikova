@@ -22,7 +22,7 @@ if Mayakovskiy & DomKnigi == set():
 else:
     print("Книги Маяковского есть в наличии в магазине ДомКниги")
 
-if Mayakovskiy & BookMarker== set():
+if Mayakovskiy & BookMarker == set():
     pass
 else:
     print("Книги Маяковского есть в наличии в магазине БукМаркер")
