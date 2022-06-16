@@ -19,40 +19,40 @@ class Main(tk.Frame):
         self.view_records()
 
     def init_main(self):
-        toolbar = tk.Frame(bg='#a0dea0', bd=4)
+        toolbar = tk.Frame(bg='#41e8bf', bd=4)
         toolbar.pack(side=tk.TOP, fill=tk.X)
 
         self.add_img = tk.PhotoImage(file="BD_PZ_16/11.gif")
-        self.btn_open_dialog = tk.Button(toolbar, text='Добавить покупателя', command=self.open_dialog, bg='#5da130', bd=0,
-                                    compound=tk.TOP, image=self.add_img)
+        self.btn_open_dialog = tk.Button(toolbar, text='Добавить покупателя', command=self.open_dialog, bg='#a6f8e4', bd=0,
+                                    compound=tk.TOP, width=150, image=self.add_img)
         self.btn_open_dialog.pack(side=tk.LEFT)
 
         self.update_img = tk.PhotoImage(file="BD_PZ_16/12.gif")
-        btn_edit_dialog = tk.Button(toolbar, text="Редактировать", command=self.open_update_dialog, bg='#5da130',
-                                    bd=0, compound=tk.TOP, image=self.update_img)
+        btn_edit_dialog = tk.Button(toolbar, text="Редактировать", command=self.open_update_dialog, bg='#a6f8e4',
+                                    bd=0, compound=tk.TOP, width=150, image=self.update_img)
         btn_edit_dialog.pack(side=tk.LEFT)
 
         self.delete_img = tk.PhotoImage(file="BD_PZ_16/13.gif")
-        btn_delete = tk.Button(toolbar, text="Удалить запись", command=self.delete_records, bg='#5da130',
-                                    bd=0, compound=tk.TOP, image=self.delete_img)
+        btn_delete = tk.Button(toolbar, text="Удалить запись", command=self.delete_records, bg='#a6f8e4',
+                                    bd=0, compound=tk.TOP, width=150, image=self.delete_img)
         btn_delete.pack(side=tk.LEFT)
 
         self.search_img = tk.PhotoImage(file="BD_PZ_16/14.gif")
-        btn_search = tk.Button(toolbar, text="Поиск записи", command=self.open_search_dialog, bg='#5da130',
-                               bd=0, compound=tk.TOP, image=self.search_img)
+        btn_search = tk.Button(toolbar, text="Поиск записи", command=self.open_search_dialog, bg='#a6f8e4',
+                               bd=0, compound=tk.TOP, width=150, image=self.search_img)
         btn_search.pack(side=tk.LEFT)
 
         self.refresh_img = tk.PhotoImage(file="BD_PZ_16/15.gif")
-        btn_refresh = tk.Button(toolbar, text="Обновить экран", command=self.view_records, bg='#5da130',
-                               bd=0, compound=tk.TOP, image=self.refresh_img)
+        btn_refresh = tk.Button(toolbar, text="Обновить экран", command=self.view_records, bg='#a6f8e4',
+                               bd=0, compound=tk.TOP, width=150, image=self.refresh_img)
         btn_refresh.pack(side=tk.LEFT)
 
         self.tree = ttk.Treeview(self, columns=('add_FIO', 'product', 'measurement', 'quantity', 'price'), height=15, show='headings')
 
-        self.tree.column('add_FIO', width=210, anchor=tk.CENTER)
-        self.tree.column('product', width=130, anchor=tk.CENTER)
-        self.tree.column('measurement', width=110, anchor=tk.CENTER)
-        self.tree.column('quantity', width=80, anchor=tk.CENTER)
+        self.tree.column('add_FIO', width=220, anchor=tk.CENTER)
+        self.tree.column('product', width=190, anchor=tk.CENTER)
+        self.tree.column('measurement', width=130, anchor=tk.CENTER)
+        self.tree.column('quantity', width=120, anchor=tk.CENTER)
         self.tree.column('price', width=100, anchor=tk.CENTER)
 
         self.tree.heading('add_FIO', text='ФИО покупателя')
@@ -86,7 +86,7 @@ class Main(tk.Frame):
 
     def search_records(self, price):
         price = ("%" + price + "%",)
-        self.db.cur.execute("""SELECT * FROM users WHERE product LIKE ?""", price)
+        self.db.cur.execute("""SELECT * FROM users WHERE price LIKE ?""", price)
         [self.tree.delete(i) for i in self.tree.get_children()]
         [self.tree.insert('', 'end', values=row) for row in self.db.cur.fetchall()]
 
@@ -225,6 +225,6 @@ if __name__ == "__main__":
     app = Main(root)
     app.pack()
     root.title("ИНТЕРНЕТ-МАГАЗИН")
-    root.geometry("650x450+300+200")
+    root.geometry("750x450+400+300")
     root.resizable(False, False)
     root.mainloop()
