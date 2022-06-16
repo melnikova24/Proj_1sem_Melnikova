@@ -3,12 +3,12 @@
 
 import random
 
-M = 3
-matrix = [[random.randint(-2, 10) for j in range(M)] for i in range(M)]
+M = 3         # кол-во элементов матрицы - квадратная
+matrix = [[random.randint(-2, 10) for j in range(M)] for i in range(M)]    # создаем матрицу в пределах чисел
 print(*matrix, sep='\n')
 
-n = []
-for i in matrix:
+n = []           # создаем пустой список для чисел, кратных 3
+for i in matrix:           # проверяем кратность элементов (i строка, t элемент в матрице)
     for t in i:
         if t % 3 == 0 and t > 0:
             n.append(t)
