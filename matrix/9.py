@@ -12,8 +12,8 @@ for v in matrix:
 
 for i in range(stl):
     for j in range(str):
-        if i == 1:
-            matrix[i][j] = matrix[i][j] * matrix[i][j]
+        if i == 0:
+            matrix[j][i] = matrix[j][i] * matrix[j][i] * matrix[j][i]
 
 print('Результат: ')
 for v in matrix:
