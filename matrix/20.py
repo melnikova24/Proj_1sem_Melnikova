@@ -9,7 +9,8 @@ matrix = [[random.randint(-5, 10) for i in range(stl)] for j in range(str)]
 print('Исходная: ')
 for v in matrix:
     print(v)
-n =[]
+
+n = []
 for i in matrix:           # проверяем кратность элементов (i строка, t элемент в матрице)
     for t in i:
         if t > 0:

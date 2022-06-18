@@ -12,7 +12,7 @@ print("Исходная матрица: ")
 for v in matrix:
     print(v)
 
-for g in range(st):
+for g in range(sr):
     matrix[N][g] += 3
 
 print("Матрица после замены столбца: ")
