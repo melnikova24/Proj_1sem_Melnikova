@@ -2,9 +2,10 @@
 
 import random
 
-M = 3         # кол-во элементов матрицы - квадратная
-matrix = [[random.randint(-2, 10) for j in range(M)] for i in range(M)]    # создаем матрицу в пределах чисел
-print(*matrix, sep='\n')
+st = int(input('Введите размер матрицы: '))
+matrix = [[random.randint(-2, 10) for j in range(st)] for i in range(st)]    # создаем матрицу в пределах чисел
+for v in matrix:
+    print(v)
 
 n = []           # создаем пустой список для чисел, кратных 3
 for i in matrix:           # проверяем кратность элементов (i строка, t элемент в матрице)

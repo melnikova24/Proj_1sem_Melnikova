@@ -16,7 +16,7 @@ print('Одномерный массив: ')
 print(massiv)
 
 for g in range(stl):
-    for t in range(stl):
+    for t in range(str):
         matrix[g][1] = massiv[t - g]
 
 print('Результат: ')
