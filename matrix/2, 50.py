@@ -12,7 +12,7 @@ for v in matrix:
 for i in range(stl):
     for j in range(str):
         if i == 1:
-            matrix[j][i] = matrix[j][i] * matrix[j][i]
+            matrix[j][i] = matrix[j][i] ** 2
 
 print('Результат: ')
 for v in matrix:
